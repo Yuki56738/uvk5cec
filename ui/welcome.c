@@ -66,10 +66,17 @@ void UI_DisplayWelcome(void)
 			EEPROM_ReadBuffer(0x0EB0, WelcomeString0, 16);
 			EEPROM_ReadBuffer(0x0EC0, WelcomeString1, 16);
 		}
+		char yukimsg[10];
+		strcpy(yukimsg, "Yuki");
+		char yukicallsign[10];
+		strcpy(yukicallsign, "JK1UXI");
+
 
 		UI_PrintString(WelcomeString0, 0, 127, 0, 10);
 		UI_PrintString(WelcomeString1, 0, 127, 2, 10);
-		UI_PrintStringSmallNormal(Version, 0, 128, 6);
+		UI_PrintString(yukimsg, 0, 127, 4, 10);
+		UI_PrintStringSmallNormal(yukicallsign, 0, 127,6);
+		// UI_PrintStringSmallNormal(Version, 0, 128, 6);
 
 		ST7565_BlitStatusLine();  // blank status line
 		ST7565_BlitFullScreen();
